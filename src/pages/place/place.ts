@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-place',
   templateUrl: 'place.html',
 })
 export class PlacePage {
-
-  constructor(private viewCtrl: ViewController) {
+	lat: number;
+	lng: number;
+	
+  constructor(private viewCtrl: ViewController, private navParams: NavParams) {
+    this.lat = this.navParams.data.location.lat;
+    this.lng = this.navParams.data.location.lng;
   }
 
 
